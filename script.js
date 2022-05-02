@@ -81,7 +81,7 @@ const account = {
 
 const choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit");
 
-if ()
+
 
 console.log(choiceMenu)
 // alert(`Hello ${account.accountName} your balance is ${account.balance}`);
