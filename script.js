@@ -79,18 +79,21 @@ const account = {
 }
 
 
-const choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit");
-
-
+let choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit");
 
 console.log(choiceMenu)
-// alert(`Hello ${account.accountName} your balance is ${account.balance}`);
+
 
 // const variableName = 10;
 // isNaN(variableName);
 
 function atm() {
-  const message = parseFloat(prompt("Display message"));
+  if (choiceMenu === "1") {
+    alert(`Your balance: ${account.balance}`);
+  } else if (choiceMenu === "4") {
+    alert(`Your accountname: ${account.accountName}`);
+  }
   // you need to answer the question why we are using parseFloat() method here
   // either use a if/else statement or a switch. Write a comment and motivate your choice
 }
+atm()
