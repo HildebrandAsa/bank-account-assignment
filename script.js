@@ -56,14 +56,14 @@
 const account = {
   accountName: "Åsa",
   balance: 100,
-  getBalance: function() {
-    return this.balance;
+  getBalance: function balance() {
+    return this.balance + deposit;
   },
-  deposit: function() {
-    
+  deposit: function depositen () {
+    return ;
   },
   withdrawal: function() {
-    
+    return parseFloat(prompt("Put some proper message here"));
   },
   getAccountName: function() {
     return this.accountName;
@@ -72,28 +72,34 @@ const account = {
     
   },
 
-  // getSummary: function () {
-  //   return `Hello ${this.accountName} you have ${this.balance} on your account.`
-  // }
-
 }
 
-
-let choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit");
-
-console.log(choiceMenu)
 
 
 // const variableName = 10;
 // isNaN(variableName);
 
 function atm() {
+  
+let choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit");
+
   if (choiceMenu === "1") {
-    alert(`Your balance: ${account.balance}`);
+    const message = parseFloat(prompt(`Your balance: ${account.balance}`));
+    alert(atm());
+  } else if (choiceMenu === "2") {
+    const depositMessage = parseFloat(prompt("How much do you want to deposit?"));
+    const showDeposit = parseFloat(prompt(`${account.deposit}`));
+    alert(atm());
+  } else if (choiceMenu === "3") {
+    const withdrawalMessage = parseFloat(prompt("How much do you want to withdrawal?"));
+    const showWithdrawal = parseFloat(prompt(`${account.withdrawal}`));
+    alert(atm());
   } else if (choiceMenu === "4") {
-    alert(`Your accountname: ${account.accountName}`);
-  }
+    const nameMessage = alert(`Your account name: ${account.accountName}`);
+    alert(atm());
+   
   // you need to answer the question why we are using parseFloat() method here
   // either use a if/else statement or a switch. Write a comment and motivate your choice
+  }
 }
 atm()
