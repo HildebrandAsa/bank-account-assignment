@@ -56,17 +56,18 @@
 const account = {
   accountName: "Åsa",
   balance: 100,
-  getBalance: function balance() {
-    return this.balance + deposit;
+  getBalance: function () {
+    return alert(`Your account balance is: ${this.balance}`);
   },
-  deposit: function depositen () {
-    return ;
+  deposit: function () {
+    const deppo = parseFloat(prompt("How much would you like to deposit?"));
+    
   },
-  withdrawal: function() {
-    return parseFloat(prompt("Put some proper message here"));
+  withdrawal: function () {
+    return parseFloat(prompt("How much would you like to withdrawal?"));
   },
   getAccountName: function() {
-    return this.accountName;
+    return alert(`Your account name: ${this.accountName}`);
   },
   accountError: function() {
     
@@ -84,18 +85,16 @@ function atm() {
 let choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit");
 
   if (choiceMenu === "1") {
-    const message = parseFloat(prompt(`Your balance: ${account.balance}`));
+    account.getBalance()
     alert(atm());
   } else if (choiceMenu === "2") {
-    const depositMessage = parseFloat(prompt("How much do you want to deposit?"));
-    const showDeposit = parseFloat(prompt(`${account.deposit}`));
+    account.deposit()
     alert(atm());
   } else if (choiceMenu === "3") {
-    const withdrawalMessage = parseFloat(prompt("How much do you want to withdrawal?"));
-    const showWithdrawal = parseFloat(prompt(`${account.withdrawal}`));
+    account.withdrawal()
     alert(atm());
   } else if (choiceMenu === "4") {
-    const nameMessage = alert(`Your account name: ${account.accountName}`);
+    account.getAccountName()
     alert(atm());
    
   // you need to answer the question why we are using parseFloat() method here
