@@ -57,26 +57,27 @@ const account = {
   accountName: "Åsa",
   balance: 100,
   getBalance: function () {
+
     return alert(`Your account balance is: ${this.balance}`);
   },
   deposit: function () {
     const depositMessage = parseFloat(prompt("How much would you like to deposit?"));
-
+    
     if (depositMessage === 0 || depositMessage <= 0) {
       alert("You can not deposit less then 1 kr")
      } else if (isNaN(depositMessage)) {
-       alert("Need to be a number")
+       alert("Must be a number")
      } else {
        alert(atm());
-     }
+     } 
   },
   withdrawal: function () {
     const withdrawalMessage = parseFloat(prompt("How much would you like to withdrawal?"));
-
+  
     if (withdrawalMessage === 0 || withdrawalMessage <= 0) {
       alert("You can not withdrawal less then 1 kr")
      } else if (isNaN(withdrawalMessage)) {
-       alert("Need to be a number")
+       alert("Must be a number")
      } else if (withdrawalMessage > this.balance) {
       alert("You dont have enough money")
      } else {
@@ -89,6 +90,9 @@ const account = {
   accountError: function() {
     
   },
+  exitAccount: function () {
+    Window.close();
+  }
 
 }
 
@@ -113,7 +117,8 @@ let choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) 
   } else if (choiceMenu === "4") {
     account.getAccountName()
     alert(atm());
-   
+  } else if (choiceMenu === "5") {
+    account.exitAccount()
   // you need to answer the question why we are using parseFloat() method here
   //ANSWER: JavaScript converts an empty string to 0, with parseFloat() it will not convert it, an empty string is still an empty string.
   // either use a if/else statement or a switch. Write a comment and motivate your choice
