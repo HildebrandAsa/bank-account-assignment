@@ -64,9 +64,7 @@ const account = {
 
     if (depositMessage === 0 || depositMessage <= 0) {
       alert("You can not deposit less then 1 kr")
-
-
-     } else if (depositMessage === isNaN) {
+     } else if (isNaN(depositMessage)) {
        alert("Need to be a number")
      } else {
        alert(atm());
@@ -77,7 +75,7 @@ const account = {
 
     if (withdrawalMessage === 0 || withdrawalMessage <= 0) {
       alert("You can not withdrawal less then 1 kr")
-     } else if (withdrawalMessage === isNaN) {
+     } else if (isNaN(withdrawalMessage)) {
        alert("Need to be a number")
      } else if (withdrawalMessage > this.balance) {
       alert("You dont have enough money")
@@ -96,8 +94,8 @@ const account = {
 
 
 
-// const deppoName = 10;
-// isNaN(deppoName);
+// const variableName = 10;
+// isNaN(variableName);
 
 function atm() {
   
