@@ -1,6 +1,84 @@
 // BANK ACCOUNT
 
-// REQUIREMENTS
+//Object with all the properties:
+const account = {
+  accountName: "Åsa",
+  balance: 100,
+  getBalance: function () {
+    return alert(`Your account balance is: ${this.balance} kr`);
+  },
+  deposit: function () {
+    const depositValue = parseFloat(prompt("How much would you like to deposit?"));
+    if (depositValue <= 0 || isNaN(depositValue)) {
+      alert("Deposit not possible");
+      atm();
+    } else {
+      this.balance += depositValue;
+      alert(`Deposit successful! Now your account balance is: ${this.balance} kr`);
+      atm();
+    }
+  },
+  withdrawal: function () {
+    const withdrawalValue = parseFloat(prompt("How much would you like to withdrawal?"));
+    if (withdrawalValue <= 0 || withdrawalValue === "" || isNaN(withdrawalValue)) {
+      alert("Withdrawal not possible");
+      atm();
+    } else if (withdrawalValue > this.balance) {
+      alert("You don't have enough money");
+      atm();
+    } else {
+      this.balance -= withdrawalValue;
+      alert(`Withdrawal successful! Now your account balance is: ${this.balance} kr`);
+      atm();
+    }
+  },
+  getAccountName: function() {
+    return alert(`Your account name: ${this.accountName}`);
+  },
+  //I think that I have handled the errors inside the other functions and can not see that I need any error handling here.
+  // accountError: function() {
+  // },
+  exitAccount: function () {
+    Window.close();
+  }
+}
+
+//Function to handle the menu
+function atm() {
+  
+  const choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit");
+
+  if (choiceMenu === "1") {
+    account.getBalance();
+    atm();
+  } else if (choiceMenu === "2") {
+    account.deposit();
+  } else if (choiceMenu === "3") {
+    account.withdrawal();
+  } else if (choiceMenu === "4") {
+    account.getAccountName();
+    atm();
+  } else if (choiceMenu === "5") {
+    account.exitAccount();
+  } else {
+    alert("Choose between 1-5");
+    atm()
+  }
+}
+atm();
+
+//QUESTIONS:
+// you need to answer the question why we are using parseFloat() method here
+//ANSWER: JavaScript converts an empty string to 0, with parseFloat() it will not convert it, an empty string is still an empty string.
+
+// either use a if/else statement or a switch. Write a comment and motivate your choice
+//ANSWER: I chose if/else statement because there is not so many different items in my code so it doesn't get messy,
+// if it had been many items I think that switch would have been a better choice. In my code I do a lot of "boolean checks" for example 
+// I check if choiceMenu = 2 is true, and if it is, then the following code will execute and that works fine in if/else statements.
+
+
+
+  // REQUIREMENTS
 // Create an object called account that has the following properties:
 // - accountName, should be the data type string
 // - balance, should be the data type number
@@ -52,76 +130,5 @@
 // to the console. But you will use prompt instead of just regular console.
 
 // to handle one of the potential errors you can use this built in method:
-
-const account = {
-  accountName: "Åsa",
-  balance: 100,
-  getBalance: function () {
-
-    return alert(`Your account balance is: ${this.balance}`);
-  },
-  deposit: function () {
-    const depositMessage = parseFloat(prompt("How much would you like to deposit?"));
-    
-    if (depositMessage === 0 || depositMessage <= 0) {
-      alert("You can not deposit less then 1 kr")
-     } else if (isNaN(depositMessage)) {
-       alert("Must be a number")
-     } else {
-       alert(atm());
-     } 
-  },
-  withdrawal: function () {
-    const withdrawalMessage = parseFloat(prompt("How much would you like to withdrawal?"));
-  
-    if (withdrawalMessage === 0 || withdrawalMessage <= 0) {
-      alert("You can not withdrawal less then 1 kr")
-     } else if (isNaN(withdrawalMessage)) {
-       alert("Must be a number")
-     } else if (withdrawalMessage > this.balance) {
-      alert("You dont have enough money")
-     } else {
-       alert(atm());
-     }
-  },
-  getAccountName: function() {
-    return alert(`Your account name: ${this.accountName}`);
-  },
-  accountError: function() {
-    
-  },
-  exitAccount: function () {
-    Window.close();
-  }
-
-}
-
-
-
 // const variableName = 10;
 // isNaN(variableName);
-
-function atm() {
-  
-let choiceMenu = prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit");
-
-  if (choiceMenu === "1") {
-    account.getBalance()
-    alert(atm());
-  } else if (choiceMenu === "2") {
-    account.deposit()
-    alert(atm());
-  } else if (choiceMenu === "3") {
-    account.withdrawal()
-    alert(atm());
-  } else if (choiceMenu === "4") {
-    account.getAccountName()
-    alert(atm());
-  } else if (choiceMenu === "5") {
-    account.exitAccount()
-  // you need to answer the question why we are using parseFloat() method here
-  //ANSWER: JavaScript converts an empty string to 0, with parseFloat() it will not convert it, an empty string is still an empty string.
-  // either use a if/else statement or a switch. Write a comment and motivate your choice
-  }
-}
-atm()
